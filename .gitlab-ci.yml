@@ -1,0 +1,31 @@
+stages:
+  - docker-build
+  - validate
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:latest
+
+Build pipeline environment:
+  image: docker:latest
+  stage: docker-build
+  services:
+    - docker:latest-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  only:
+    changes:
+      - Dockerfile
+      - gitlab-ci.yml
+      - requirements.txt
+
+Test syntax:
+  stage: validate
+  image: $IMAGE_TAG
+  script:
+    - robot -d logs --dryrun tasks/tasks.robot
+  artifacts:
+    paths:
+      - logs/
+    when: always
