@@ -17,7 +17,7 @@ Build pipeline environment:
   only:
     changes:
       - Dockerfile
-      - gitlab-ci.yml
+      - .gitlab-ci.yml
       - requirements.txt
 
 Test syntax:
