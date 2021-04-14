@@ -4,6 +4,8 @@ Library    CamundaLibrary    ${CAMUNDA_HOST}
 *** Variables ***
 ${CAMUNDA_HOST}    ${EMPTY}
 ${TOPIC}    name_of_my_camunda_topic
+
+# Task variables
 ${WORKLOAD}    ${EMPTY}
 ${PROCESS_INSTANCE}    ${EMPTY}
 ${TASK_RESULT}    ${EMPTY}
