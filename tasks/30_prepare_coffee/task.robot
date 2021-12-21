@@ -1,6 +1,5 @@
 *** Settings ***
 Library    CamundaLibrary    ${CAMUNDA_HOST}
-Library    RequestsLibrary
 
 *** Variables ***
 ${CAMUNDA_HOST}    ${EMPTY}
