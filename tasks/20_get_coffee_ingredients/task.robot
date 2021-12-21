@@ -4,6 +4,7 @@ Library    RequestsLibrary
 Library    json
 Library    libraries/CoffeeApi.py
 Library    Collections
+Task Teardown    Handle result
 
 *** Variables ***
 ${CAMUNDA_HOST}    %{CAMUNDA_HOST}
@@ -44,6 +45,9 @@ Finish workload
     ELSE
        Throw BPMN Error    error_code=COFFEE_TYPE_UNKNOWN    error_message=Failed to identify ingredients for '${WORKLOAD}[coffee_type]'
     END
+    
+Handle result
+    Run Keyword If Test Failed    Notify failure    retries==3    message=${TEST_MESSAGE}
 
 *** Tasks ***
 Process workload
