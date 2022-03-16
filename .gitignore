@@ -1,3 +1,7 @@
 .idea/
 venv/
 logs/
+.venv/
+log.html
+report.html
+output.xml
