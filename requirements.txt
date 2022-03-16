@@ -1,1 +1,1 @@
-robotframework-camunda
+robotframework-camunda>=2.0.1

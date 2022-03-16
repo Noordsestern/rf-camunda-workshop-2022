@@ -2,6 +2,11 @@
 venv/
 logs/
 .venv/
+__pycache__/
+
+*.pyc
+
 log.html
-report.html
 output.xml
+report.html
+
