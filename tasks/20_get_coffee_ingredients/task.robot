@@ -55,9 +55,11 @@ Handle result
 
 *** Tasks ***
 Process workload
-    #Check and download workload    ${counter}
-    ${WORKLOAD}    Create Dictionary    coffee_type    Espresso
-    Set Global Variable    ${WORKLOAD}
-    Get ingredients
-    #Finish workload
+    FOR    ${counter}    IN RANGE    0    100
+        Check and download workload    ${counter}
+        ${WORKLOAD}    Create Dictionary    coffee_type    Espresso
+        Set Global Variable    ${WORKLOAD}
+        Get ingredients
+        Finish workload
+    END
 
