@@ -8,7 +8,7 @@
             "type": "robotframework-lsp",
             "name": "Robot Framework: Launch template",
             "request": "launch",
-            "args": ["-v CAMUNDA_HOST:http://localhost:8080"]
+            "args": ["-v","CAMUNDA_HOST:http://localhost:8080","-d","logs","-b","debug.log"]
         },
 
         {
@@ -19,7 +19,7 @@
             "target": "^\"\\${file}\"",
             "terminal": "integrated",
             "env": {},
-            "args": ["-v CAMUNDA_HOST:http://localhost:8080"]
+            "args": ["-v","CAMUNDA_HOST:http://localhost:8080","-d","logs","-b","debug.log"]
         }
     ]
 }
