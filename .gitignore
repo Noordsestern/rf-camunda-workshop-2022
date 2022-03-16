@@ -1,3 +1,11 @@
 .idea/
 venv/
 logs/
+.venv/
+__pycache__/
+
+*.pyc
+
+log.html
+output.xml
+report.html
