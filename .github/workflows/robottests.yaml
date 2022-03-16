@@ -21,12 +21,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Test with robot
+      env:
+        CAMUNDA_HOST: http://camunda:8080
       run: |
         pip install -r requirements.txt
         sleep 20
-        robot -d logs -b debug-prepare.log -x xunit-prepare.xml -L DEBUG -v CAMUNDA_HOST:http://camunda:8080 tests/20_get_coffee_ingredients/prepare.robot
-        robot -d logs -b debug-task.log -x xunit-task.xml -L DEBUG -v CAMUNDA_HOST:http://camunda:8080 tasks/20_get_coffee_ingredients/task.robot
-        robot -d logs -b debug-validate.log -x xunit-validate.xml -L DEBUG -v CAMUNDA_HOST:http://camunda:8080 tests/20_get_coffee_ingredients/validate.robot
+        robot -d logs -b debug-prepare.log -x xunit-prepare.xml -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
+        robot -d logs -b debug-task.log -x xunit-task.xml -L DEBUG tasks/20_get_coffee_ingredients/task.robot
+        robot -d logs -b debug-validate.log -x xunit-validate.xml -L DEBUG tests/20_get_coffee_ingredients/validate.robot
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       if: always()
