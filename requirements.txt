@@ -1,1 +1,2 @@
 robotframework-camunda>=2.0.1
+robotframework-requests
