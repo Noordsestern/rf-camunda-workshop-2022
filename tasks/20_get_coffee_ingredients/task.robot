@@ -28,7 +28,7 @@ Check and download workload
 
 
 Finish workload
-    IF    ${INGREDIENTS}
+    IF    $INGREDIENTS
         ${variables}    Create Dictionary    ingredients=${INGREDIENTS}
         Complete task    ${variables}
     ELSE

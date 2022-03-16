@@ -12,7 +12,7 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_02y3rjg" sourceRef="python_define_coffee_type" targetRef="robot_get_ingredients" />
     <bpmn:sequenceFlow id="Flow_1fgvqqr" sourceRef="robot_get_ingredients" targetRef="Gateway_09moldr" />
-    <bpmn:userTask id="Activity_1iv4fbl" name="Enter data manually">
+    <bpmn:userTask id="user_add_ingredients" name="Enter data manually">
       <bpmn:incoming>Flow_1bshydb</bpmn:incoming>
       <bpmn:outgoing>Flow_0g41bas</bpmn:outgoing>
     </bpmn:userTask>
@@ -21,7 +21,7 @@
       <bpmn:incoming>Flow_1fgvqqr</bpmn:incoming>
       <bpmn:outgoing>Flow_1oj4rtt</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_0g41bas" sourceRef="Activity_1iv4fbl" targetRef="Gateway_09moldr" />
+    <bpmn:sequenceFlow id="Flow_0g41bas" sourceRef="user_add_ingredients" targetRef="Gateway_09moldr" />
     <bpmn:sequenceFlow id="Flow_1oj4rtt" sourceRef="Gateway_09moldr" targetRef="robot_prepare_coffee" />
     <bpmn:serviceTask id="robot_prepare_coffee" name="Prepare coffee" camunda:type="external" camunda:topic="prepare coffee">
       <bpmn:incoming>Flow_1oj4rtt</bpmn:incoming>
@@ -36,7 +36,7 @@
       <bpmn:outgoing>Flow_1bshydb</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_0uct5mu" />
     </bpmn:boundaryEvent>
-    <bpmn:sequenceFlow id="Flow_1bshydb" sourceRef="Event_1lbj140" targetRef="Activity_1iv4fbl" />
+    <bpmn:sequenceFlow id="Flow_1bshydb" sourceRef="Event_1lbj140" targetRef="user_add_ingredients" />
     <bpmn:sequenceFlow id="Flow_1mdqqpb" sourceRef="robot_prepare_coffee" targetRef="Gateway_1646a3u" />
     <bpmn:sequenceFlow id="Flow_0lyd09u" name="yes" sourceRef="Gateway_1646a3u" targetRef="python_tweet_coffee">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${social_media}</bpmn:conditionExpression>
@@ -87,21 +87,6 @@ Slack</bpmn:text>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="coffee_brewing">
-      <bpmndi:BPMNShape id="TextAnnotation_062tyfp_di" bpmnElement="TextAnnotation_062tyfp">
-        <dc:Bounds x="820" y="315" width="100" height="56" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1kbmegc_di" bpmnElement="TextAnnotation_1kbmegc">
-        <dc:Bounds x="180" y="120" width="100" height="56" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1o8wnim_di" bpmnElement="TextAnnotation_1o8wnim">
-        <dc:Bounds x="300" y="97" width="100" height="41" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0gsji87_di" bpmnElement="TextAnnotation_0gsji87">
-        <dc:Bounds x="470" y="83" width="100" height="56" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0swyjbv_di" bpmnElement="TextAnnotation_0swyjbv">
-        <dc:Bounds x="1130" y="280" width="100" height="41" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1yvn7kr_di" bpmnElement="Flow_1yvn7kr">
         <di:waypoint x="1200" y="220" />
         <di:waypoint x="1265" y="220" />
@@ -165,7 +150,7 @@ Slack</bpmn:text>
       <bpmndi:BPMNShape id="Activity_0hfpi70_di" bpmnElement="python_define_coffee_type">
         <dc:Bounds x="300" y="180" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1uexw5m_di" bpmnElement="Activity_1iv4fbl">
+      <bpmndi:BPMNShape id="Activity_1uexw5m_di" bpmnElement="user_add_ingredients">
         <dc:Bounds x="600" y="300" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_09moldr_di" bpmnElement="Gateway_09moldr" isMarkerVisible="true">
@@ -195,6 +180,31 @@ Slack</bpmn:text>
       <bpmndi:BPMNShape id="Gateway_1oy32sy_di" bpmnElement="Gateway_0i6d77o" isMarkerVisible="true">
         <dc:Bounds x="1265" y="195" width="50" height="50" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_062tyfp_di" bpmnElement="TextAnnotation_062tyfp">
+        <dc:Bounds x="820" y="315" width="100" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1kbmegc_di" bpmnElement="TextAnnotation_1kbmegc">
+        <dc:Bounds x="180" y="120" width="100" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1o8wnim_di" bpmnElement="TextAnnotation_1o8wnim">
+        <dc:Bounds x="300" y="97" width="100" height="41" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0gsji87_di" bpmnElement="TextAnnotation_0gsji87">
+        <dc:Bounds x="470" y="83" width="100" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0swyjbv_di" bpmnElement="TextAnnotation_0swyjbv">
+        <dc:Bounds x="1130" y="280" width="100" height="41" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1jfc58e_di" bpmnElement="Event_1lbj140">
+        <dc:Bounds x="472" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="501" y="273" width="38" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_143j0pf_di" bpmnElement="Association_143j0pf">
+        <di:waypoint x="870" y="260" />
+        <di:waypoint x="870" y="315" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0bg0pcd_di" bpmnElement="Association_0bg0pcd">
         <di:waypoint x="230" y="202" />
         <di:waypoint x="230" y="176" />
@@ -202,10 +212,6 @@ Slack</bpmn:text>
       <bpmndi:BPMNEdge id="Association_1m1wnh6_di" bpmnElement="Association_1m1wnh6">
         <di:waypoint x="350" y="180" />
         <di:waypoint x="350" y="138" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_143j0pf_di" bpmnElement="Association_143j0pf">
-        <di:waypoint x="870" y="260" />
-        <di:waypoint x="870" y="315" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_160yin9_di" bpmnElement="Association_160yin9">
         <di:waypoint x="513" y="180" />
@@ -215,12 +221,6 @@ Slack</bpmn:text>
         <di:waypoint x="1167" y="260" />
         <di:waypoint x="1175" y="280" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Event_1jfc58e_di" bpmnElement="Event_1lbj140">
-        <dc:Bounds x="472" y="242" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="501" y="273" width="38" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

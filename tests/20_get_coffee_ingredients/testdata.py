@@ -1,6 +1,6 @@
 TEST_DATA=[
     {
-        'testcase' : 'Espresso',
+        'testcase' : 'Succesfully find ingredients for Espresso',
         'process_key': 'coffee_brewing',
         'description' : 'Validate that ingredients for Espresso are retrieved',   
         'prepare': {
@@ -17,7 +17,7 @@ TEST_DATA=[
         }
     },
     {
-        'testcase' : 'Americano',
+        'testcase' : 'Succesfully find ingredients for Americano',
         'process_key': 'coffee_brewing',
         'description' : 'Validate that ingredients for Americano are retrieved',   
         'prepare': {
@@ -31,6 +31,22 @@ TEST_DATA=[
                 'ingredients' : ['Espresso','Hot Water']
             },
             'activity_ids': ['robot_prepare_coffee'],
+        }
+    },
+    {
+        'testcase' : 'Fail to find ingredients for Nespresso',
+        'process_key': 'coffee_brewing',
+        'description' : 'Validate that ingredients for Americano are retrieved',   
+        'prepare': {
+            'variables' : {
+                'coffee_type': 'Nespresso'
+            },
+            'activity_ids': ['robot_get_ingredients'],
+        },
+        'validate': {
+            'variables' : {
+            },
+            'activity_ids': ['user_add_ingredients'],
         }
     }
 ]
