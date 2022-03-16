@@ -10,6 +10,9 @@ Task Teardown    Handle result
 ${CAMUNDA_HOST}    %{CAMUNDA_HOST}
 ${TOPIC}    name_of_my_camunda_topic
 
+# Constants
+@{COFFEE_ENDPOINTS}    https://api.sampleapis.com/coffee/hot     https://api.sampleapis.com/coffee/iced
+
 # Task variables
 ${WORKLOAD}    ${EMPTY}
 ${PROCESS_INSTANCE}    ${EMPTY}
@@ -28,6 +31,7 @@ Check and download workload
 Get ingredients
     ${recipes}    Collect recepies
     ${recipe}    Identify coffee from recipes    ${WORKLOAD}[coffee_type]    ${recipes}
+    Should Not Be Empty    ${recipe}    Could not find a recipe for ${WORKLOAD}[coffee_type]
     ${ingredients}    Get From Dictionary    ${recipe}    ingredients
     Set Global Variable    ${ingredients}
     [Return]    ${ingredients}
@@ -52,7 +56,7 @@ Handle result
 *** Tasks ***
 Process workload
     #Check and download workload    ${counter}
-    ${WORKLOAD}    Create Dictionary    coffee_type    Black
+    ${WORKLOAD}    Create Dictionary    coffee_type    Espresso
     Set Global Variable    ${WORKLOAD}
     Get ingredients
     #Finish workload
