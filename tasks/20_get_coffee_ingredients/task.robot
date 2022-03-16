@@ -1,6 +1,5 @@
 *** Settings ***
 Library    CamundaLibrary
-Library    datetime
 Resource    keywords/recipes.resource
 Variables    variables/camunda.py
 # Variables are only available *after* Libraries are initialized, therefore we need to configurate Camunda URL after library loading, too.
@@ -43,8 +42,6 @@ Handle result
 Process workload
     FOR    ${counter}    IN RANGE    0    100
         Check and download workload    ${counter}
-        ${WORKLOAD}    Create Dictionary    coffee_type    Espresso
-        Set Global Variable    ${WORKLOAD}
         Get ingredients
         Finish workload
     END
