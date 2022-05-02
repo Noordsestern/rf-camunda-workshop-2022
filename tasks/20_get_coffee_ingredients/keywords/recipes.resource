@@ -3,7 +3,7 @@ Library    RequestsLibrary
 Library    json
 Library    ../libraries/CoffeeApi.py
 Library    Collections
-Library    ../../../.venv/lib/python3.8/site-packages/robot/libraries/XML.py
+Library    XML
 
 
 *** Keywords ***
