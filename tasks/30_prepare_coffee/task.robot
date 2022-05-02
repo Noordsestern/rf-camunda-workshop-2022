@@ -2,28 +2,28 @@
 Library    CamundaLibrary    ${CAMUNDA_HOST}
 
 *** Variables ***
-${CAMUNDA_HOST}    ${EMPTY}
-${TOPIC}    name_of_my_camunda_topic
+${CAMUNDA_HOST}    http://localhost:8080
+${TOPIC}    prepare coffee
 
 # Task variables
 ${WORKLOAD}    ${EMPTY}
 ${PROCESS_INSTANCE}    ${EMPTY}
-${TASK_RESULT}    ${EMPTY}
 
 *** Keywords ***
 Check and download workload
     [Arguments]    ${counter}
     ${potential_workload}    Fetch Workload    ${TOPIC}
     ${process_instance_from_response}    Get fetch response
-    Pass Execution If    not ${process_instance_from_response}     No workload found. Amount of workloads processed in total: ${counter}
+    Pass Execution If    not $process_instance_from_response     No more workload found. Amount of workloads processed in total: ${counter}
     Set Global Variable    ${WORKLOAD}    ${potential_workload}
     Set Global Variable    ${PROCESS_INSTANCE}    ${process_instance_from_response}
 
 Do processing
-    Log    Place processing of the following workload here:\n${WORKLOAD}
+    Log To Console   Preparing for you: ${WORKLOAD}[coffee_type]
+    Sleep    2 s
 
 Finish workload
-    Complete task    ${TASK_RESULT}
+    Complete task
 
 *** Tasks ***
 Process workload
