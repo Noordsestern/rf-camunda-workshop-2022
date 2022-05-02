@@ -1,35 +1,25 @@
 *** Settings ***
-Library    CamundaLibrary    ${CAMUNDA_HOST}
+Documentation     Filling out survey about coffee type
 
-*** Variables ***
-${CAMUNDA_HOST}    ${EMPTY}
-${TOPIC}    name_of_my_camunda_topic
+Library           RPA.Browser.Selenium
+Library           random
 
-# Task variables
-${WORKLOAD}    ${EMPTY}
-${PROCESS_INSTANCE}    ${EMPTY}
-${TASK_RESULT}    ${EMPTY}
-
-*** Keywords ***
-Check and download workload
-    [Arguments]    ${counter}
-    ${potential_workload}    Fetch Workload    ${TOPIC}
-    ${process_instance_from_response}    Get fetch response
-    Pass Execution If    not ${process_instance_from_response}     No workload found. Amount of workloads processed in total: ${counter}
-    Set Global Variable    ${WORKLOAD}    ${potential_workload}
-    Set Global Variable    ${PROCESS_INSTANCE}    ${process_instance_from_response}
-
-Do processing
-    Log    Place processing of the following workload here:\n${WORKLOAD}
-
-Finish workload
-    Complete task    ${TASK_RESULT}
 
 *** Tasks ***
-Process workload
-    FOR    ${counter}    IN RANGE    0    100
-        Check and download workload    ${counter}
-        Do processing
-        Finish workload
+Fill out coffee type survey
+    Open Available Browser    https://www.buzzfeed.com/rileyroach/which-coffee-are-you-572dyo73ow
+    Title Should Be    What Type Of Coffee Are You Quiz
+
+    Wait Until Element Is Visible   //*[@role="dialog"]
+    Click Button      //button[contains(.,"AGREE")]
+
+    FOR    ${INDEX}    IN RANGE    1    10
+        ${randomNumber}=     Evaluate  random.randint(1,6)   random
+        Scroll Element Into View    //section[@aria-label="Quiz"]/ul/li[${INDEX}]/fieldset//li[${randomNumber}]
+        Click Element    //section[@aria-label="Quiz"]/ul/li[${INDEX}]/fieldset//li[${randomNumber}]
+        Log    ${INDEX} "and" ${randomNumber}
+        Sleep    1
     END
 
+    ${result}=    Get Element Attribute    xpath://*[@class="resultTitle__2SVjS"]    innerHTML
+    Log    ${result}
