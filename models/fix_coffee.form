@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Espresso",
+          "value": "Espresso"
+        },
+        {
+          "label": "Black",
+          "value": "Black"
+        },
+        {
+          "label": "Americano",
+          "value": "Americano"
+        },
+        {
+          "label": "Café au Lait",
+          "value": "Café au Lait"
+        }
+      ],
+      "label": "Select Coffee Type",
+      "type": "select",
+      "id": "Field_0u7pf38",
+      "key": "coffee_type",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "form_fix_coffee_ingredients",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}
