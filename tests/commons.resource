@@ -41,7 +41,7 @@ Process is ready
     ${child_activity_instances}    Set Variable    ${activity_instance}[child_activity_instances]
     FOR    ${child_activity}    IN    @{child_activity_instances}
         IF    '${child_activity}[activity_type]' == 'serviceTask'
-            List Should Contain Value    @{expected_activity_ids}    ${child_activity}[activity_id]    Unexpected service task:\t${child_activity}[activity_id]
+            List Should Contain Value    @{expected_activity_ids}    ${child_activity}[activity_id]    Unexpected service task '${child_activity}[activity_id]', but expected 1 of:\t@{expected_activity_ids}
         END
     END
 

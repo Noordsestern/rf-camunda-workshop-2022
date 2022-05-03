@@ -26,14 +26,14 @@ jobs:
       run: |
         pip install -r requirements.txt
         sleep 20
-        robot --nostatusrc -d logs-20 -b debug-prepare.log -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
-        robot --nostatusrc -d logs-20 -b debug-task.log -L DEBUG tasks/20_get_coffee_ingredients/task.robot
-        robot --nostatusrc -d logs-20 -b debug-validate.log -L DEBUG tests/20_get_coffee_ingredients/validate.robot
+        robot --nostatusrc -d logs-20 -b debug-prepare.log -o output-prepare.xml -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
+        robot --nostatusrc -d logs-20 -b debug-task.log -o output-task.xml -L DEBUG tasks/20_get_coffee_ingredients/task.robot
+        robot --nostatusrc -d logs-20 -b debug-validate.log -o output-validate.xml -L DEBUG tests/20_get_coffee_ingredients/validate.robot
         rebot --nostatusrc -d logs-20-all -o output.xml -R logs-20/*.xml 
 
-        robot --nostatusrc -d logs-30 -b debug-prepare.log -L DEBUG tests/30_prepare_coffee/prepare.robot
-        robot --nostatusrc -d logs-30 -b debug-task.log -L DEBUG tasks/30_prepare_coffee/task.robot
-        robot --nostatusrc -d logs-30 -b debug-validate.log -L DEBUG tests/30_prepare_coffee/validate.robot
+        robot --nostatusrc -d logs-30 -b debug-prepare.log -o output-prepare.xml -L DEBUG tests/30_prepare_coffee/prepare.robot
+        robot --nostatusrc -d logs-30 -b debug-task.log -o output-task.xml -L DEBUG tasks/30_prepare_coffee/task.robot
+        robot --nostatusrc -d logs-30 -b debug-validate.log -o output-validate.xml -L DEBUG tests/30_prepare_coffee/validate.robot
         rebot --nostatusrc -d logs-30-all -o output.xml -R logs-30/*.xml
 
         rebot -d logs -o output.xml -x xunit.xml -R logs-30-all/output.xml logs-20-all/output.xml 
