@@ -25,6 +25,7 @@ jobs:
         CAMUNDA_HOST: http://camunda:8080
       run: |
         pip install -r requirements.txt
+        echo Give Camunda Platform Run some time to startup. Waiting 20 seconds...
         sleep 20
         robot --nostatusrc -d logs -b debug-prepare-20.log -x xunit-prepare-20.xml -o output-prepare-20.xml -r repot-prepare-20.html -l log-prepare-20.html -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
         robot --nostatusrc -d logs -b debug-task-20.log -x xunit-task-20.xml -o output-task-20.xml -r repot-task-20.html -l log-task-20.html -L DEBUG tasks/20_get_coffee_ingredients/task.robot
