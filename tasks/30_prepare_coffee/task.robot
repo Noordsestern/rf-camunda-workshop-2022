@@ -1,6 +1,8 @@
 *** Settings ***
-Library    CamundaLibrary    ${CAMUNDA_HOST}
+Library    CamundaLibrary
 Variables    variables/camunda.py
+# Variables are only available *after* Libraries are initialized, therefore we need to configurate Camunda URL after library loading, too.
+Suite Setup    Set Camunda URL    ${CAMUNDA_HOST}
 
 *** Variables ***
 ${TOPIC}    prepare coffee
