@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" camunda:diagramRelationId="fffe2065-fe25-4c6b-8c8b-a8d1f164f58c">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" camunda:diagramRelationId="fffe2065-fe25-4c6b-8c8b-a8d1f164f58c">
   <bpmn:process id="coffee_brewing" name="Coffee Brewer" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Coffee needed">
       <bpmn:outgoing>Flow_0gqdmvy</bpmn:outgoing>
@@ -113,16 +113,16 @@
           <dc:Bounds x="194" y="195" width="72" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0hfpi70_di" bpmnElement="python_define_coffee_type">
+      <bpmndi:BPMNShape id="Activity_0hfpi70_di" bpmnElement="python_define_coffee_type" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
         <dc:Bounds x="300" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1uexw5m_di" bpmnElement="user_add_ingredients">
+      <bpmndi:BPMNShape id="Activity_1uexw5m_di" bpmnElement="user_add_ingredients" bioc:stroke="#8e24aa" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#8e24aa">
         <dc:Bounds x="460" y="290" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0snkdl2_di" bpmnElement="robot_prepare_coffee">
+      <bpmndi:BPMNShape id="Activity_0snkdl2_di" bpmnElement="robot_prepare_coffee" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
         <dc:Bounds x="630" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_16euko4_di" bpmnElement="robot_get_ingredients">
+      <bpmndi:BPMNShape id="Activity_16euko4_di" bpmnElement="robot_get_ingredients" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
         <dc:Bounds x="460" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_03vd8za_di" bpmnElement="Event_03vd8za">
@@ -131,7 +131,7 @@
           <dc:Bounds x="1180" y="195" width="61" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0629imy_di" bpmnElement="python_tweet_coffee">
+      <bpmndi:BPMNShape id="Activity_0629imy_di" bpmnElement="python_tweet_coffee" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
         <dc:Bounds x="910" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0ar7rsw_di" bpmnElement="Gateway_1646a3u" isMarkerVisible="true">
