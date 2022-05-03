@@ -26,18 +26,14 @@ jobs:
       run: |
         pip install -r requirements.txt
         sleep 20
-        robot --nostatusrc -d logs-20 -b debug-prepare.log -o output-prepare.xml -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
-        robot --nostatusrc -d logs-20 -b debug-task.log -o output-task.xml -L DEBUG tasks/20_get_coffee_ingredients/task.robot
-        robot --nostatusrc -d logs-20 -b debug-validate.log -o output-validate.xml -L DEBUG tests/20_get_coffee_ingredients/validate.robot
-        rebot --nostatusrc -d logs-20-all -N Regressiontests -o output-tests.xml -R logs-20/output-prepare.xml logs-20/output-validate.xml 
+        robot --nostatusrc -d logs -b debug-prepare-20.log -x xunit-prepare-20.xml -o output-prepare-20.xml -r repot-prepare-20.html -l log-prepare-20.html -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
+        robot --nostatusrc -d logs -b debug-task-20.log -x xunit-task-20.xml -o output-task-20.xml -r repot-task-20.html -l log-task-20.html -L DEBUG tasks/20_get_coffee_ingredients/task.robot
+        robot --nostatusrc -d logs -b debug-validate-20.log -x xunit-validate-20.xml -o output-validate-20.xml -r repot-validate-20.html -l log-validate-20.html -L DEBUG tests/20_get_coffee_ingredients/validate.robot
 
-        robot --nostatusrc -d logs-30 -b debug-prepare.log -o output-prepare.xml -L DEBUG tests/30_prepare_coffee/prepare.robot
-        robot --nostatusrc -d logs-30 -b debug-task.log -o output-task.xml -L DEBUG tasks/30_prepare_coffee/task.robot
-        robot --nostatusrc -d logs-30 -b debug-validate.log -o output-validate.xml -L DEBUG tests/30_prepare_coffee/validate.robot
-        rebot --nostatusrc -d logs-30-all -N Regressiontests -o output-tests.xml -R logs-30/output-prepare.xml logs-30/output-validate.xml 
+        robot --nostatusrc -d logs -b debug-prepare-30.log -x xunit-prepare-30.xml -o output-prepare-30.xml -r repot-prepare-30.html -l log-prepare-30.html -L DEBUG tests/30_prepare_coffee/prepare.robot
+        robot --nostatusrc -d logs -b debug-task-30.log -x xunit-task-30.xml -o output-task-30.xml -r repot-task-20.html -l log-task-20.html -L DEBUG tasks/30_prepare_coffee/task.robot
+        robot --nostatusrc -d logs -b debug-validate-30.log -x xunit-validate-30.xml -o output-validate-30.xml -r repot-validate-20.html -l log-validate-20.html -L DEBUG tests/30_prepare_coffee/validate.robot
 
-        rebot --nostatusrc -d logs -o output-tasks.xml -x xunit-tasks.xml -r report-tasks.html -l log-tasks.html -R logs-20/output-task.xml logs-30/output-task.xml
-        rebot -d logs -o output-tests.xml -x xunit-tests.xml -r report-tests.html -l log-tests.html -R logs-30-all/output-tests.xml logs-20-all/output-tests.xml 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       if: always()
