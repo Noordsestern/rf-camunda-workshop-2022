@@ -27,13 +27,13 @@ jobs:
         pip install -r requirements.txt
         echo Give Camunda Platform Run some time to startup. Waiting 20 seconds...
         sleep 20
-        robot --nostatusrc -d logs -b debug-prepare-20.log -x xunit-prepare-20.xml -o output-prepare-20.xml -r repot-prepare-20.html -l log-prepare-20.html -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
-        robot --nostatusrc -d logs -b debug-task-20.log -x xunit-task-20.xml -o output-task-20.xml -r repot-task-20.html -l log-task-20.html -L DEBUG tasks/20_get_coffee_ingredients/task.robot
-        robot --nostatusrc -d logs -b debug-validate-20.log -x xunit-validate-20.xml -o output-validate-20.xml -r repot-validate-20.html -l log-validate-20.html -L DEBUG tests/20_get_coffee_ingredients/validate.robot
+        robot --nostatusrc -d logs -b debug-prepare-20.log -x xunit-prepare-20.xml -o output-prepare-20.xml -r report-prepare-20.html -l log-prepare-20.html -L DEBUG tests/20_get_coffee_ingredients/prepare.robot
+        robot --nostatusrc -d logs -b debug-task-20.log -x xunit-task-20.xml -o output-task-20.xml -r report-task-20.html -l log-task-20.html -L DEBUG tasks/20_get_coffee_ingredients/task.robot
+        robot --nostatusrc -d logs -b debug-validate-20.log -x xunit-validate-20.xml -o output-validate-20.xml -r report-validate-20.html -l log-validate-20.html -L DEBUG tests/20_get_coffee_ingredients/validate.robot
 
-        robot --nostatusrc -d logs -b debug-prepare-30.log -x xunit-prepare-30.xml -o output-prepare-30.xml -r repot-prepare-30.html -l log-prepare-30.html -L DEBUG tests/30_prepare_coffee/prepare.robot
-        robot --nostatusrc -d logs -b debug-task-30.log -x xunit-task-30.xml -o output-task-30.xml -r repot-task-20.html -l log-task-20.html -L DEBUG tasks/30_prepare_coffee/task.robot
-        robot --nostatusrc -d logs -b debug-validate-30.log -x xunit-validate-30.xml -o output-validate-30.xml -r repot-validate-20.html -l log-validate-20.html -L DEBUG tests/30_prepare_coffee/validate.robot
+        robot --nostatusrc -d logs -b debug-prepare-30.log -x xunit-prepare-30.xml -o output-prepare-30.xml -r report-prepare-30.html -l log-prepare-30.html -L DEBUG tests/30_prepare_coffee/prepare.robot
+        robot --nostatusrc -d logs -b debug-task-30.log -x xunit-task-30.xml -o output-task-30.xml -r report-task-30.html -l log-task-30.html -L DEBUG tasks/30_prepare_coffee/task.robot
+        robot --nostatusrc -d logs -b debug-validate-30.log -x xunit-validate-30.xml -o output-validate-30.xml -r repot-validate-30.html -l log-validate-30.html -L DEBUG tests/30_prepare_coffee/validate.robot
 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
