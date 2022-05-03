@@ -1,8 +1,8 @@
 *** Settings ***
 Library    CamundaLibrary    ${CAMUNDA_HOST}
+Variables    variables/camunda.py
 
 *** Variables ***
-${CAMUNDA_HOST}    http://localhost:8080
 ${TOPIC}    prepare coffee
 
 # Task variables
