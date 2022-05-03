@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         auth_enabled: ['false']      
-        camunda_version: ['run-7.16.0', 'run-7.17.0']
+        camunda_version: ['run-7.17.0']
     services:
       camunda:
         image: camunda/camunda-bpm-platform:${{ matrix.camunda_version }}
@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: robot logs for Camunda Platform ${{ matrix.camunda_version }}
+        name: robot logs
         path: |
           logs/
   publish-test-results:
@@ -51,9 +51,9 @@ jobs:
 
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-           name: robot logs*
+           name: robot logs
 
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
