@@ -26,7 +26,8 @@ Finish workload
     Complete task
 
 *** Tasks ***
-Process workload
+Process workload to prepare coffee
+    [Tags]    30
     FOR    ${counter}    IN RANGE    0    100
         Check and download workload    ${counter}
         Do processing

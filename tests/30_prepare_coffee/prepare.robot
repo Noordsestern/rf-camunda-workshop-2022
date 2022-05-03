@@ -11,7 +11,8 @@ ${model_folder}    ${CURDIR}/../../models
 
 
 *** Test Cases ***
-Prepare task Execution
+Prepare task Execution 'Prepare Coffee'
+    [Tags]    30
     Given Process is deployed
     And Process 'coffee_brewing' is empty
     FOR    ${testset}    IN    @{test_data}     
