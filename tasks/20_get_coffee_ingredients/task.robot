@@ -39,7 +39,8 @@ Handle result
     Run Keyword If Test Failed    Notify failure    retries==3    message=${TEST_MESSAGE}
 
 *** Tasks ***
-Process workload
+Process workload for getting coffee ingredients
+    [Tags]    20
     FOR    ${counter}    IN RANGE    0    100
         Check and download workload    ${counter}
         Get ingredients

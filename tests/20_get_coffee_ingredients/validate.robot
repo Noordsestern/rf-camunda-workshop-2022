@@ -9,7 +9,8 @@ Suite Setup    Set Camunda URL    ${CAMUNDA_HOST}
 ${task_folder}    ${CURDIR}/../../tasks/20_get_coffee_ingredients
 
 *** Test Cases ***
-Validate process state
+Validate process state after task '20 Get Coffee Ingredgients'
+    [Tags]    20
     Given Process 'coffee_brewing' is not empty
     FOR    ${testset}    IN    @{test_data}   
         ${testcase}    Set Variable      ${testset}[testcase] 
