@@ -1,2 +1,7 @@
+# python worker based tasks
+camunda-external-task-client-python3
+pydantic
+
+# CamundaLibrary based tasks
 robotframework-camunda>=2.0.1
 robotframework-requests
