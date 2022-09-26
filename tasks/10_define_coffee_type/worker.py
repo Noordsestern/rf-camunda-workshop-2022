@@ -15,6 +15,6 @@ def handle_task(task: ExternalTask) -> TaskResult:
             max_retries=0, retry_timeout=5000)
     else:
         coffeeType = l.variables["${result}"]
-        return task.complete({"coffee_type": coffeeType})
+        return task.complete({"coffee_type": coffeeType.strip()})
 
 ExternalTaskWorker(worker_id="1").subscribe("define coffee type", handle_task)
